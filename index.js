@@ -39,9 +39,22 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.stomach = [];
+  this.name = name;
+  this.age = age;
 }
+Person.prototype.eat = function(edible) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(edible);
+  }
+};
+Person.prototype.poop = function() {
+  this.stomach = [];
+};
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
+};
 
 /*
   TASK 2
@@ -57,9 +70,15 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+Car.prototype.fill = function(gallons) {
+  return (this.tank = this.tank + gallons);
+};
 
 /*
   TASK 3
@@ -68,18 +87,32 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`;
+};
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1. Window Binding - if no other rules apply "this" defaults to the window object.
+
+  2. Implicit Binding - when the function is invoked look to the left of the dot and thats what "this" refers to. It only applies to objects with methods. Automatically refers to whats to the left of the dot when the function is invoked.
+
+  3. Explicit Binding - 3 different types: call/ which immediately invokes the function. ".call" passes in arguments one by one. apply/ immediately invokes function, with ".apply" you pass in arguments as an array. bind/ you pass arguments in one by one but doesn't immediately invoke the function, instead it returns a brand new function that can be invoked later. All of the above allow us to explicitly state what the "this" keyword is referring to in any given function.
+
+  4. New Binding - When a function as a constructor function using a "new" keyword constructs a new object and "this" points to it.
+
 */
 
 
