@@ -116,13 +116,13 @@ Baby.prototype.play = function(){
 
   In your own words explain the four principles for the "this" keyword below:
 
-  1. Window Binding - if no other rules apply "this" defaults to the window object.
+  1. Window Binding - when you write the 'this' keyword into javascript it defaults to the window object if it isn't pointing at anything. The window object contains the properties of the global object.
 
-  2. Implicit Binding - when the function is invoked look to the left of the dot and thats what "this" refers to. It only applies to objects with methods. Automatically refers to whats to the left of the dot when the function is invoked.
+  2. Implicit Binding - 
 
-  3. Explicit Binding - 3 different types: call/ which immediately invokes the function. ".call" passes in arguments one by one. apply/ immediately invokes function, with ".apply" you pass in arguments as an array. bind/ you pass arguments in one by one but doesn't immediately invoke the function, instead it returns a brand new function that can be invoked later. All of the above allow us to explicitly state what the "this" keyword is referring to in any given function.
+  3. Explicit Binding - 
 
-  4. New Binding - When a function as a constructor function using a "new" keyword constructs a new object and "this" points to it.
+  4. New Binding - 
 
 */
 
