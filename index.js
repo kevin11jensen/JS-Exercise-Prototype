@@ -118,11 +118,11 @@ Baby.prototype.play = function(){
 
   1. Window Binding - when you write the 'this' keyword into javascript it defaults to the window object if it isn't pointing at anything. The window object contains the properties of the global object.
 
-  2. Implicit Binding - 
+  2. Implicit Binding - Used in most cases. Implicit binding occurs when dot notation is used to invoke a function. Whatever is to the left of the dot is what the 'this' keyword is pointing to.
 
-  3. Explicit Binding - 
+  3. Explicit Binding - Whenever we use JavaScripts call or apply method 'this' keyword is explicitely defined.
 
-  4. New Binding - 
+  4. New Binding - Whenever we use a constructor function, the 'this' keyword refers to the specific instance of the object that is created and returned by the constructor function.
 
 */
 
